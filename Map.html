@@ -1,0 +1,73 @@
+<html>
+<head>
+  <title> Sample: Philladelphia Bike Thefts, 2011</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+  <script src="Bike_Thefts_sample.js"></script>
+  <style>
+  #mapId{ width: screen.width; height: 500px; }
+  </style>
+</head>
+<body>
+
+  <div id="mapId"></div>
+
+  <script>
+
+  function addPopups(feature, layer) {
+    if (feature.properties && feature.properties.Location) {
+      layer.bindPopup(feature.properties.Location);
+    }
+  }
+
+  /* initialize the map.
+  setView method: Sets the view of the map (geographical center and zoom) with the given animation options.
+
+  setView( <LatLng> center, <Number> zoom?, <zoom/pan options> options? )
+  */
+  var long =  -75.129021, lat = 40.002901;
+  var map = L.map('mapId').setView([lat,long], 11);
+
+  //replace the code below from the Plain JavaScript from the map style you choose
+  //at http://leaflet-extras.github.io/leaflet-providers/preview/
+
+  var OpenStreetMap_DE = L.tileLayer('https://api.mapbox.com/styles/v1/maycroft/cjnkc5wltdyqw2snablx3hng3/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWF5Y3JvZnQiLCJhIjoiY2l5MXluMW1nMDAwYjJ2cGc0MnlpaDd5cCJ9.4-kIMv1yknNvjhZGQtjnmA', {
+  	maxZoom: 18,
+  	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  });
+
+  var geojsonMarkerOptions = {
+    radius: 4,
+    fillColor: "#00bbff",
+    color: "#000",
+    weight: 1,
+    opacity: .5,
+    fillOpacity: 0.8
+};
+
+  //change the varialbe "OpenStreetMap_BlackAndWhite" according to the map style you choose
+  //It is the varialbe between "var" and "= L.titleLayer(..."  in Line 27 in this script
+  OpenStreetMap_DE.addTo(map);
+
+
+  L.geoJSON(bikeThefts, {
+    onEachFeature: addPopups,
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, geojsonMarkerOptions);
+
+    }
+}).addTo(map);
+
+
+  </script>
+
+  <p>
+    First 100 bike thefts in 2011 in Philadelphia, Pennsylvania. Click on a point to see location.
+  </p>
+  <p>
+    <small>
+      Source: <a href="https://www.opendataphilly.org/dataset">Open Data Philly</a>
+    </small>
+  </p>
+</body>
+</html>
