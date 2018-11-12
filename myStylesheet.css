@@ -1,0 +1,107 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+html, body, .wrap, #map {
+  height: 100%;
+  width: 100%;
+}
+#map {
+  z-index: 1;
+}
+
+#overlay { 
+  position: absolute; 
+  top:100px; 
+  right: 10px;  
+  z-index: 2; 
+  background-color: white; 
+  padding: 10px; 
+  font: 14px/16px Arial; 
+  background:rgba(255,255,255,0.8); 
+  box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+  border-radius: 5px; 
+}
+
+.axis--grid .domain {
+  fill: #ddd;
+  stroke: none;
+}
+
+.axis--x .domain,
+.axis--grid .tick line {
+  stroke: #fff;
+}
+
+.axis--grid .tick--minor line {
+  stroke-opacity: .5;
+}
+
+#header {
+  position: absolute; 
+  top:10px; 
+  left: 80px;  
+  z-index: 0; 
+  background-color: white; 
+  padding: 10px; 
+  font: 14px/16px Arial; 
+  background:rgba(255,255,255,0.8); 
+  box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+  border-radius: 5px;
+}
+
+#right{
+  position: absolute; 
+  top:0px; 
+  right: 0px;  
+  z-index: 90; 
+ 
+  padding: 10px; 
+  font: 14px/16px Arial; 
+  box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+  border-radius: 5px;
+  opacity: 1;
+  
+}
+
+#left{
+  position: absolute; 
+  top:50px; 
+  left: 50px;  
+  z-index: 99; 
+ 
+  padding: 10px; 
+  font: 14px/16px Arial; 
+  box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+  border-radius: 5px;
+  opacity: 1;
+  width: 6cm;
+}
+
+#pagecontent{
+  position: absolute; 
+  top:10px; 
+  left: 50px;  
+  z-index: 99; 
+ font: 14px/26px Arial;
+  width: 9cm;
+  opacity: 0.9;
+  
+}
+
+
+
+#sitecontainer{
+  position: absolute; 
+  top:40px; 
+  left: 50px;  
+  z-index: 98; 
+  margin-right: 25%;
+  padding: 10px; 
+  font: 14px/16px Arial; 
+  box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+  border-radius: 5px;
+  opacity: 1;
+  width: 19cm;
+}
+
