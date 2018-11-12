@@ -1,0 +1,126 @@
+<html>
+  <head>
+    <title>example</title>
+    <!-- Scripts -->
+    <script src="leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.13/d3.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!--Stylesheet -->
+    <link rel="stylesheet" href="myStylesheet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+
+
+    
+  </head>
+  <body>
+  
+      <div class="wrap">
+          <div id="overlay">Brush</div>
+          <div id="map"></div>    
+        </div>
+  
+    <script>
+      
+   // "use strict"
+  //data is stored in a variable called stream 
+  //functions 
+  // basemap  
+  var map = L.map('map').setView([51.505, 0], 13);
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+var json = {
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "value": 1, "name": "one" }, "geometry": { "type": "Point", "coordinates": [ -0.039809283088199, 51.49259693809617 ] } },
+{ "type": "Feature", "properties": { "value": 2, "name": "two" }, "geometry": { "type": "Point", "coordinates": [ -0.024609374999963, 51.4826815053082 ] } },
+{ "type": "Feature", "properties": { "value": 3, "name": "three" }, "geometry": { "type": "Point", "coordinates": [ -0.030158547794081, 51.508667376598062 ] } },
+{ "type": "Feature", "properties": { "value": 4, "name": "four" }, "geometry": { "type": "Point", "coordinates": [ -0.01616498161761, 51.497553845910254 ] } },
+{ "type": "Feature", "properties": { "value": 5, "name": "five" }, "geometry": { "type": "Point", "coordinates": [ 0.001206341911803, 51.491545403504134 ] } },
+{ "type": "Feature", "properties": { "value": 6, "name": "six" }, "geometry": { "type": "Point", "coordinates": [ -0.007479319852903, 51.502209844056267 ] } },
+{ "type": "Feature", "properties": { "value": 7, "name": "seven" }, "geometry": { "type": "Point", "coordinates": [ -0.003860294117609, 51.511970876580335 ] } },
+{ "type": "Feature", "properties": { "value": 8, "name": "eight" }, "geometry": { "type": "Point", "coordinates": [ -0.051872702205847, 51.4984550439641 ] } },
+{ "type": "Feature", "properties": { "value": 9, "name": "nine" }, "geometry": { "type": "Point", "coordinates": [ -0.044875919117611, 51.506264680698742 ] } },
+{ "type": "Feature", "properties": { "value": 10, "name": "ten" }, "geometry": { "type": "Point", "coordinates": [ -0.018095128676433, 51.516325124205068 ] } }
+]
+};
+
+var layer_group = L.geoJSON(json, {
+  onEachFeature: function(feature, layer) {
+    layer.bindPopup("Name: " + feature.properties.name + "<br />" + "Value: " + feature.properties.value);
+  }
+}).addTo(map);
+
+var margin = { top: 20, right: 20, bottom: 20, left: 20 },
+    width  =  700 - margin.left - margin.right,
+    height =  100 - margin.top  - margin.bottom;
+
+var x = d3.scaleLinear()
+.domain([0, 10])
+.rangeRound([0, width]);
+
+var svg = d3.select("#overlay").append("svg")
+.attr("width", width + margin.left + margin.right)
+.attr("height", height + margin.top + margin.bottom)
+.append("g")
+.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("g")
+  .attr("class", "axis axis--grid")
+  .attr("transform", "translate(0," + height + ")")
+  .call(d3.axisBottom(x)
+        .ticks(10)
+        .tickSize(-height)
+        .tickFormat(function() { return null; }));
+
+svg.append("g")
+  .attr("class", "axis axis--x")
+  .attr("transform", "translate(0," + height + ")")
+  .call(d3.axisBottom(x)
+        .ticks(10)
+        .tickPadding(0))
+  .attr("text-anchor", null)
+  .selectAll("text")
+  .attr("x", -20)
+  .attr("y", -20);              
+
+svg.append("g")
+  .attr("class", "brush")
+  .call(d3.brushX()
+        .extent([[0, 0], [width, height]])
+        .on("end", brushended));
+
+
+function brushended() {
+  if (!d3.event.sourceEvent) return; // Only transition after input.
+  if (!d3.event.selection) return; // Ignore empty selections.
+  var d0 = d3.event.selection.map(x.invert),
+      d1 = d0.map(Math.round);
+
+  // If empty when rounded, use floor & ceil instead.
+  if (d1[0] >= d1[1]) {
+    d1[0] = Math.floor(d0[0]);
+    d1[1] = d1[0]+1;
+  }
+
+  d3.select(this).transition().call(d3.event.target.move, d1.map(x));
+
+  layer_group.eachLayer(function (layer) {
+    map.removeLayer(layer);
+    if (layer.feature.properties.value > d1[0] && layer.feature.properties.value <= d1[1]) {
+      map.addLayer(layer);
+    }
+  });
+
+
+}              
+
+
+  </script>
+  
+
+  </body>
+  </html>

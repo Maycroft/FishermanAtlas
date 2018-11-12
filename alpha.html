@@ -1,0 +1,164 @@
+<html>
+
+<head>
+  <title>final</title>
+  <!-- Scripts -->
+  <script src="leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.13/d3.min.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+  <script src="streamdata.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.13/d3.min.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <!--Stylesheet -->
+  <link rel="stylesheet" href="myStylesheet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Faustina Regular", serif;
+    }
+
+    body,
+    html {
+      height: 100%;
+      color: rgba(32, 31, 31, 0.863);
+      line-height: 1.8;
+    }
+
+    .w3-wide {
+      letter-spacing: 10px;
+    }
+
+    .w3-hover-opacity {
+      cursor: pointer;
+    }
+
+    div.w3-sidebar {
+      opacity: 0.9;
+
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div class="wrap">
+    <div id="overlay">filter</div>
+
+    <div id="map"></div>
+    <div id="header">
+      <div class="container">
+
+        <h1 id="fh5co-logo">Fisherman's Atlas<br></a></h1>
+
+      </div>
+    </div>
+    <div id="right">
+      <div class="w3-sidebar w3-bar-block w3-card " style="width:25%;right:0;opacity: 0.9">
+        <h3 class="w3-bar-item ">Filters</h3>
+        <a class="w3-bar-item w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1">Location</a>
+        <a class="w3-bar-item w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1">Flow Rate</a>
+        <a class="w3-bar-item w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1">Fishing Season</a>
+      </div>
+
+    </div>
+    <div >
+      <div class="w3-sidebar w3-bar-block w3-border-right w3-white" style="display:none;opacity: 1;" id="left" >
+        <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+        <a href="#" class="w3-bar-item w3-button w3-indigo w3-hover-pink">Home</a>
+        <a href="#" class="w3-bar-item w3-button w3-indigo w3-hover-pink">About</a>
+        <a href="#" class="w3-bar-item w3-button w3-indigo w3-hover-pink">Contact</a>
+      </div>
+    </div>
+
+    <div id="pagecontent">
+      <div class="w3-light-grey" style="margin-right:25%;opacity: 0.9;">
+        <button id = "container_button" class="w3-button w3-white w3-xlarge" 
+        onclick="w3_open()">☰     Fisherman's Atlas</button>
+        
+      </div>
+    </div>
+
+    <div id="sitecontainer">
+      <div class="w3-content w3-container"  >
+        <!-- Site listing -->
+        <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%;left:50px">
+          <h3 class="w3-bar-item">Site List</h3>
+          <a href="#" class="w3-bar-item w3-button w3-indigo w3-hover-pink">Site 1</a>
+          <a href="#" class="w3-bar-item w3-button w3-indigo w3-hover-pink">Site 2</a>
+          <a href="#" class="w3-bar-item w3-button w3-indigo w3-hover-pink">Site 3</a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+
+    // "use strict"
+    //data is stored in a variable called stream 
+    //functions 
+    // basemap 
+    function w3_open() {
+      document.getElementById("left").style.display = "block";
+    }
+    function w3_close() {
+      document.getElementById("left").style.display = "none";
+    }
+
+    var long = -77.859909, lat = 40.798214; // long lat of state college 
+    var map = L.map('map').setView([lat, long], 11);
+    var mapbox = L.tileLayer('https://api.mapbox.com/styles/v1/maycroft/cjnkc5wltdyqw2snablx3hng3/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWF5Y3JvZnQiLCJhIjoiY2l5MXluMW1nMDAwYjJ2cGc0MnlpaDd5cCJ9.4-kIMv1yknNvjhZGQtjnmA', {
+      maxZoom: 18,
+      attribution: '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'
+    });
+    mapbox.addTo(map);
+
+   
+//plots every point
+    //accesses the different site locations 
+    var sites = stream.value.timeSeries //gets to the different sites 
+      var i = 0;
+      for (i=0; i <= sites.length; i++){
+        var x = String(i) // because they use numbers as strings for the different sites 
+        var site = sites[i].sourceInfo.geoLocation.geogLocation //access the lat and long for each 
+        var circle = L.circle([site.latitude, site.longitude], {
+          radius: 10,
+          color:'red',
+          radius: 500,
+          fillColor: '#f03'
+      }).addTo(map)
+      // add basic pop-up of names 
+      circle.bindPopup(sites[i].sourceInfo.siteName)
+      }
+      
+      /*
+        var circle = L.circle([site0.latitude, site0.longitude], {
+          radius: 10,
+          color:'red',
+          radius: 500,
+          fillColor: '#f03'
+      }).addTo(map)
+       */
+    
+    
+
+
+  </script>
+
+
+</body>
+
+</html>
