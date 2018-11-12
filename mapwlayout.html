@@ -3,17 +3,19 @@
 <head>
   <title>final</title>
   <!-- Scripts -->
-  <script src="leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.13/d3.min.js"></script>
   <script src="https://d3js.org/d3.v4.min.js"></script>
-  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+  integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+  crossorigin=""></script>
   <script src="streamdata.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.13/d3.min.js"></script>
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <!--Stylesheet -->
   <link rel="stylesheet" href="myStylesheet.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+  integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+  crossorigin=""/>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -65,14 +67,37 @@
       </div>
     </div>
     <div id="right">
-      <div class="w3-sidebar w3-bar-block w3-card " style="width:25%;right:0;opacity: 0.9">
+      <div class="w3-sidebar w3-bar-block w3-card" style="width:25%;right:0;opacity: 0.9">
         <h3 class="w3-bar-item ">Filters</h3>
-        <a class="w3-bar-item w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1">Location</a>
-        <a class="w3-bar-item w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1">Flow Rate</a>
-        <a class="w3-bar-item w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1">Fishing Season</a>
+        <button onclick="accFunction('Acco1')" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1">Location</button>
+          <div id="Acco1" class="w3-container w3-hide">
+            <!-- Location filter here -->
+            <h4>Location Filter</h4>
+          </div>
+        <button onclick="accFunction('Acco2')" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1">Flow Rate</button>
+          <div id="Acco2" class="w3-container w3-hide">
+            <!-- Flow Rate filter here -->
+            <h4>Flow Rate Filter</h4>
+          </div>
+        <button onclick="accFunction('Acco3')" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1">Fishing Season</button>
+          <div id="Acco3" class="w3-container w3-hide">
+            <!-- Fishing Season Filter here -->
+            <h4>Fishing Season Filter</h4>
+          </div>
       </div>
-
     </div>
+
+    <script>
+      function accFunction(id) {
+        var x = document.getElementById(id);
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else { 
+          x.className = x.className.replace(" w3-show", "");
+        }
+      }
+    </script>
+
     <div >
       <div class="w3-sidebar w3-bar-block w3-border-right w3-white" style="display:none;opacity: 1;" id="left" >
         <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
