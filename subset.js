@@ -48,6 +48,18 @@ var stream = {
                             "value": "02040101", "name": "hucCd"
                         }, {
                             "value": "42", "name": "stateCd"
+                        },{
+                            "value": "53",
+                            "name": "watertemp"
+                        },{
+                            "value": "54",
+                            "name": "airtemp"
+                        },{
+                            "value": "spring",
+                            "name": "fishingszn"
+                        },{
+                            "value": "yes",
+                            "name": "polluted"
                         }, {
                             "value": "42127", "name": "countyCd"
                         }
@@ -113,6 +125,18 @@ var stream = {
                             "value": "02050204", "name": "hucCd"
                         }, {
                             "value": "42", "name": "stateCd"
+                        },{
+                            "value": "58",
+                            "name": "watertemp"
+                        },{
+                            "value": "71",
+                            "name": "airtemp"
+                        },{
+                            "value": "summer",
+                            "name": "fishingszn"
+                        },{
+                            "value": "yes",
+                            "name": "polluted"
                         }, {
                             "value": "42027", "name": "countyCd"
                         }
@@ -177,6 +201,18 @@ var stream = {
                             "value": "02050204", "name": "hucCd"
                         }, {
                             "value": "42", "name": "stateCd"
+                        },{
+                            "value": "36",
+                            "name": "watertemp"
+                        },{
+                            "value": "47",
+                            "name": "airtemp"
+                        },{
+                            "value": "summer",
+                            "name": "fishingszn"
+                        },{
+                            "value": "no",
+                            "name": "polluted"
                         }, {
                             "value": "42027", "name": "countyCd"
                         }]
@@ -246,6 +282,18 @@ var stream = {
                         }, {
                             "value": "42", "name": "stateCd"
                         }, {
+                            "value": "55",
+                            "name": "watertemp"
+                        },{
+                            "value": "48",
+                            "name": "airtemp"
+                        },{
+                            "value": "fall",
+                            "name": "fishingszn"
+                        },{
+                            "value": "yes",
+                            "name": "polluted"
+                        },{
                             "value": "42027", "name": "countyCd"
                         }
                         ]
@@ -321,6 +369,18 @@ var stream = {
                         }, {
                             "value": "42", "name": "stateCd"
                         }, {
+                            "value": "46",
+                            "name": "watertemp"
+                        },{
+                            "value": "53",
+                            "name": "airtemp"
+                        },{
+                            "value": "summer",
+                            "name": "fishingszn"
+                        },{
+                            "value": "no",
+                            "name": "polluted"
+                        },{
                             "value": "42027", "name": "countyCd"
                         }]
                     },
@@ -393,6 +453,18 @@ var stream = {
                             "value": "02050302", "name": "hucCd"
                         }, {
                             "value": "42", "name": "stateCd"
+                        },{
+                            "value": "58",
+                            "name": "watertemp"
+                        },{
+                            "value": "70",
+                            "name": "airtemp"
+                        },{
+                            "value": "fall",
+                            "name": "fishingszn"
+                        },{
+                            "value": "no",
+                            "name": "polluted"
                         }, {
                             "value": "42061", "name": "countyCd"
                         }]
@@ -477,6 +549,18 @@ var stream = {
                         }, {
                             "value": "42", "name": "stateCd"
                         }, {
+                            "value": "39",
+                            "name": "watertemp"
+                        },{
+                            "value": "46",
+                            "name": "airtemp"
+                        },{
+                            "value": "spring",
+                            "name": "fishingszn"
+                        },{
+                            "value": "no",
+                            "name": "polluted"
+                        },{
                             "value": "42087", "name": "countyCd"
                         }]
                     },
@@ -565,6 +649,18 @@ var stream = {
                         }, {
                             "value": "42",
                             "name": "stateCd"
+                        },{
+                            "value": "37",
+                            "name": "watertemp"
+                        },{
+                            "value": "44",
+                            "name": "airtemp"
+                        },{
+                            "value": "summer",
+                            "name": "fishingszn"
+                        },{
+                            "value": "no",
+                            "name": "polluted"
                         }, {
                             "value": "42027",
                             "name": "countyCd"
@@ -654,6 +750,18 @@ var stream = {
                         }, {
                             "value": "42",
                             "name": "stateCd"
+                        },{
+                            "value": "55",
+                            "name": "watertemp"
+                        },{
+                            "value": "65",
+                            "name": "airtemp"
+                        },{
+                            "value": "fall",
+                            "name": "fishingszn"
+                        },{
+                            "value": "no",
+                            "name": "polluted"
                         }, {
                             "value": "42033", "name": "countyCd"
                         }]
@@ -741,6 +849,18 @@ var stream = {
                             "value": "42",
                             "name": "stateCd"
                         }, {
+                            "value": "36",
+                            "name": "watertemp"
+                        },{
+                            "value": "45",
+                            "name": "airtemp"
+                        },{
+                            "value": "winter",
+                            "name": "fishingszn"
+                        },{
+                            "value": "no",
+                            "name": "polluted"
+                        },{
                             "value": "42065",
                             "name": "countyCd"
                         }]
