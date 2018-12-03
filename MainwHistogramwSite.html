@@ -407,18 +407,25 @@
       "type": "FeatureCollection",
       "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
       "features": [
-        { "type": "Feature", "properties": { "value": sites[i].values["0"].value["0"].value, "name": sites[i].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
-        { "type": "Feature", "properties": { "value": sites[i].values["0"].value["0"].value, "name": sites[i].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
-        { "type": "Feature", "properties": { "value": sites[i].values["0"].value["0"].value, "name": sites[i].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
-        { "type": "Feature", "properties": { "value": sites[i].values["0"].value["0"].value, "name": sites[i].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
-        { "type": "Feature", "properties": { "value": sites[i].values["0"].value["0"].value, "name": sites[i].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
-        { "type": "Feature", "properties": { "value": sites[i].values["0"].value["0"].value, "name": sites[i].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
-        { "type": "Feature", "properties": { "value": sites[i].values["0"].value["0"].value, "name": sites[i].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
-        { "type": "Feature", "properties": { "value": sites[i].values["0"].value["0"].value, "name": sites[i].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
-        { "type": "Feature", "properties": { "value": sites[i].values["0"].value["0"].value, "name": sites[i].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
-        { "type": "Feature", "properties": { "value": sites[i].values["0"].value["0"].value, "name": sites[i].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } }
+        { "type": "Feature", "properties": { "value": sites["0"].values["0"].value["0"].value, "name": sites["0"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
+        { "type": "Feature", "properties": { "value": sites["1"].values["0"].value["0"].value, "name": sites["1"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
+        { "type": "Feature", "properties": { "value": sites["2"].values["0"].value["0"].value, "name": sites["2"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
+        { "type": "Feature", "properties": { "value": sites["3"].values["0"].value["0"].value, "name": sites["3"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
+        { "type": "Feature", "properties": { "value": sites["4"].values["0"].value["0"].value, "name": sites["4"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
+        { "type": "Feature", "properties": { "value": sites["5"].values["0"].value["0"].value, "name": sites["5"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
+        { "type": "Feature", "properties": { "value": sites["6"].values["0"].value["0"].value, "name": sites["6"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
+        { "type": "Feature", "properties": { "value": sites["7"].values["0"].value["0"].value, "name": sites["7"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
+        { "type": "Feature", "properties": { "value": sites["8"].values["0"].value["0"].value, "name": sites["8"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
+        { "type": "Feature", "properties": { "value": sites["9"].values["0"].value["0"].value, "name": sites["9"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } }
       ]
     };
+
+
+    var layer_group = L.geoJSON(json, {
+      onEachFeature: function (feature, layer) {
+      }
+    });
+
 
     var margin = { top: 10, right: 10, bottom: 10, left: 10 },
       width = 620 - margin.left - margin.right,
