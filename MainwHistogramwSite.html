@@ -50,8 +50,11 @@
   </style>
 </head>
 
-<body>
+<script>
 
+</script>
+
+<body>
 
   <div class="wrap">
 
@@ -247,7 +250,7 @@
       function leavefunction(lat, lon) {
 
         circle.setLatLng([lat, lon]);
-        circle.setStyle({ color: 'red' });
+        circle.setStyle({ color: 'blue' });
       }
 
     </script>
@@ -267,6 +270,7 @@
 
       </div>
     </div>
+
 
     <div id="sitecontainer">
         <div class="w3-content w3-container">
@@ -315,17 +319,11 @@
                 style="opacity: 1">Mahoning Creek at Punxsutawney, PA</button>
             </div>
   
-  
-  
-  
-  
-  
           </div>
   
         </div>
       </div>
   
-
   <script>
 
     // "use strict"
@@ -354,55 +352,61 @@
     for (i = 0; i < sites.length; i++) {
       var x = String(i) // because they use numbers as strings for the different sites 
       var site = sites[i].sourceInfo.geoLocation.geogLocation //access the lat and long for each 
-      var circle = L.circle([site.latitude, site.longitude], {
+      var circle = L.circleMarker([site.latitude, site.longitude], {
         radius: 10,
-        color: 'red',
-        radius: 500,
-        fillColor: '#f03'
+        color: 'blue',
+        radius: 5,
+        fillColor: 'blue'
       }).addTo(map)
 
 
-    //Add popup
-            // add image url variable (dependent on site location)
-            //var imageUrl = ("https://static.pexels.com/photos/189349/pexels-photo-189349.jpeg");
+
             
+// create photo variable for each of the sites. When photo is clicked in popup, new window opens with enlarged image. 
+// this could have been better with a switch function, but it works with an if/else statements too. - BW
+// would have liked to make this automated (since each URL is the same except the site number) but could not find out how to make a JS variable read in internal HTML. - BW 
     var photo; 
           if (sites[i].sourceInfo.siteCode["0"].value == '01427195'){
-            photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01427500&parm_cd=00060&period=7" width="300px"/>';
+            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01427500&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01427500&parm_cd=00060&period=7" width="300px"/> </a>'
           }  else if (sites[i].sourceInfo.siteCode["0"].value == '01546500'){
-            photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01546500&parm_cd=00060&period=7" width="300px"/>';
+            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01546500&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01546500&parm_cd=00060&period=7" width="300px"/> </a>'
           } else if (sites[i].sourceInfo.siteCode["0"].value == '01546400'){
-            photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01546400&parm_cd=00060&period=7" width="300px"/>';
+            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01546400&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01546400&parm_cd=00060&period=7" width="300px"/> </a>'
           } else if (sites[i].sourceInfo.siteCode["0"].value == '01547100'){
-            photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547100&parm_cd=00060&period=7" width="300px"/>';
+            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547100&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547100&parm_cd=00060&period=7" width="300px"/> </a>'
           } else if (sites[i].sourceInfo.siteCode["0"].value == '01547200'){
-            photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547200&parm_cd=00060&period=7" width="300px"/>';
+            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547200&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547200&parm_cd=00060&period=7" width="300px"/> </a>'
           } else if (sites[i].sourceInfo.siteCode["0"].value == '01558000'){
-            photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01558000&parm_cd=00060&period=7" width="300px"/>';
+            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01558000&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01558000&parm_cd=00060&period=7" width="300px"/> </a>'
           } else if (sites[i].sourceInfo.siteCode["0"].value == '01565000'){
-            photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01565000&parm_cd=00060&period=7" width="300px"/>';
+            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01565000&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01565000&parm_cd=00060&period=7" width="300px"/> </a>'
           } else if (sites[i].sourceInfo.siteCode["0"].value == '01547500'){
-            photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547500&parm_cd=00060&period=7" width="300px"/>';
+            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547500&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547500&parm_cd=00060&period=7" width="300px"/> </a>'
           } else if (sites[i].sourceInfo.siteCode["0"].value == '01542500'){
-            photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01542500&parm_cd=00060&period=7" width="300px"/>';
+            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01542500&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01542500&parm_cd=00060&period=7" width="300px"/> </a>'
           } else if (sites[i].sourceInfo.siteCode["0"].value == '03034000'){
-            photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=03034000&parm_cd=00060&period=7" width="300px"/>';
+            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=03034000&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=03034000&parm_cd=00060&period=7" width="300px"/> </a>'
           } else {
             photo = "No photo available"
           } 
+
             //create variable of popup values  
-            var valPop = ("<dt><b>" + sites[i].sourceInfo.siteName + "</b></dt>" +
-                        photo +
-                        "<dt><b>Current Stream Flow: </b>" + sites[i].values["0"].value["0"].value +" ft^3/s" + "</dt>" +
-                        "<dt><b>Water Temperature:  </b>" + sites[i].sourceInfo.siteProperty["3"].value + " &#176F" + "</dt>" +
-                        "<dt><b>Air Temperature:  </b>" +  sites[i].sourceInfo.siteProperty["4"].value + " &#176F" + "</dt>" +
-                        "<dt><b>Polluted:  </b>" + sites[i].sourceInfo.siteProperty["6"].value + "</dt>" ) +
-                        "<dt><b>Site Code: </b>" + sites[i].sourceInfo.siteCode["0"].value + "</dt>";
+     var valPop = ("<dt><b>" + sites[i].sourceInfo.siteName + "</b></dt>" +
+                    photo +
+                    "<dt><b>Current Stream Flow: </b>" + sites[i].values["0"].value["0"].value +" ft^3/s" + "</dt>" +
+                    "<dt><b>Water Temperature:  </b>" + sites[i].sourceInfo.siteProperty["3"].value + " &#176F" + "</dt>" +
+                    "<dt><b>Air Temperature:  </b>" +  sites[i].sourceInfo.siteProperty["4"].value + " &#176F" + "</dt>" +
+                    "<dt><b>Polluted:  </b>" + sites[i].sourceInfo.siteProperty["6"].value + "</dt>" ) +
+                    "<dt><b>Site Code: </b>" + sites[i].sourceInfo.siteCode["0"].value + "</dt>";
           
           circle.bindPopup(valPop)
                           
-          };
+ }; // end of loop 
 
+
+
+
+// create json of data for filtering
     var json = {
       "type": "FeatureCollection",
       "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
@@ -420,13 +424,13 @@
       ]
     };
 
-
+    // create layer group of geoJSON (not added to map)
     var layer_group = L.geoJSON(json, {
       onEachFeature: function (feature, layer) {
       }
     });
 
-
+    // create visual components of filter (???)
     var margin = { top: 10, right: 10, bottom: 10, left: 10 },
       width = 620 - margin.left - margin.right,
       height = 100 - margin.top - margin.bottom;
@@ -467,6 +471,7 @@
         .on("end", brushended));
 
 
+// create function for brushing (???)
     function brushended() {
       if (!d3.event.sourceEvent) return; // Only transition after input.
       if (!d3.event.selection) return; // Ignore empty selections.
