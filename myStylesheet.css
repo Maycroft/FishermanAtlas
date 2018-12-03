@@ -10,10 +10,45 @@ html, body, .wrap, #map {
   z-index: 1;
 }
 
+#locInput {
+  position: absolute;
+  top: 80px;
+  right: 10px;
+  z-index: 2;
+  background-color: white;
+  padding: 10px;
+  font: 14px/16px Arial;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+  border-radius: 5px;
+}
+
+#locUL {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#locUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px;
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+}
+
+#locUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+
 #overlay { 
-  position: absolute; 
-  top:155px; 
-  right: 10px;  
+  position: relative; 
+  top:70px;
+  left:40px;
   z-index: 2; 
   background-color: white; 
   padding: 10px; 
@@ -102,4 +137,3 @@ html, body, .wrap, #map {
   opacity: 1;
   width: 19cm;
 }
-
