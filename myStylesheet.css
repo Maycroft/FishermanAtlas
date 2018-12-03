@@ -12,7 +12,7 @@ html, body, .wrap, #map {
 
 #overlay { 
   position: absolute; 
-  top:120px; 
+  top:155px; 
   right: 10px;  
   z-index: 2; 
   background-color: white; 
