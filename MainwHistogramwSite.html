@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>final</title>
+  <title>Fisherman's Atlas</title>
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.13/d3.min.js"></script>
   <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -50,11 +50,8 @@
   </style>
 </head>
 
-<script>
-
-</script>
-
 <body>
+
 
   <div class="wrap">
 
@@ -62,7 +59,10 @@
     <div id="header">
       <div class="container">
 
-        <h1 id="fh5co-logo">Fisherman's Atlas<br></a></h1>
+        <h1 id="fh5co-logo">Fisherman's Atlas
+          <br>
+          </a>
+        </h1>
 
       </div>
     </div>
@@ -75,16 +75,36 @@
           <!-- Location filter here -->
           <input type="text" id="locInput" onkeyup="locFunction()" placeholder="Search for station...">
           <ul id="locUL">
-            <li><a href="#">WB Susquehanna River at Karthaus</a></li>
-            <li><a href="#">Mahoning Creek at Punxsutawney</a></li>
-            <li><a href="#">Little Juniata River at Spruce Creek</a></li>
-            <li><a href="#">Spring Creek at Houserville</a></li>
-            <li><a href="#">Spring Creek near Axemann</a></li>
-            <li><a href="#">Spring Creek at Milesburg</a></li>
-            <li><a href="#">Bald Eagle Creek bl Spring Creek at Milesburg</a></li>
-            <li><a href="#">Kishacoquillas Creek at Reedsville</a></li>
-            <li><a href="#">Bald Eagle Creek at Blanchard</a></li>
-            <li><a href="#">Equinunk Creek near Dillontown</a></li>
+            <li>
+              <a href="#">WB Susquehanna River at Karthaus</a>
+            </li>
+            <li>
+              <a href="#">Mahoning Creek at Punxsutawney</a>
+            </li>
+            <li>
+              <a href="#">Little Juniata River at Spruce Creek</a>
+            </li>
+            <li>
+              <a href="#">Spring Creek at Houserville</a>
+            </li>
+            <li>
+              <a href="#">Spring Creek near Axemann</a>
+            </li>
+            <li>
+              <a href="#">Spring Creek at Milesburg</a>
+            </li>
+            <li>
+              <a href="#">Bald Eagle Creek bl Spring Creek at Milesburg</a>
+            </li>
+            <li>
+              <a href="#">Kishacoquillas Creek at Reedsville</a>
+            </li>
+            <li>
+              <a href="#">Bald Eagle Creek at Blanchard</a>
+            </li>
+            <li>
+              <a href="#">Equinunk Creek near Dillontown</a>
+            </li>
           </ul>
           <script>
             function locFunction() {
@@ -113,108 +133,111 @@
         <div id="Acco2" class="w3-container w3-hide">
           <!-- Flow Rate filter here -->
           <div class="w3-row-padding" style="width:35%;right:0;height: 17%;opacity: 0.9;">
-            <div id="overlay"></div>
+            <div id="overlay">Brush based on flow rate value <button onclick="location.reload(); ">Reset View</button>
+            </div>
+
           </div>
         </div>
         <button onclick="accFunction('Acco3')" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
           style="opacity: 1">Fishing Season</button>
         <div id="Acco3" class="w3-container w3-hide">
           <!-- Fishing Season Filter here -->
-                   <body>
-               <p id="date"> </p>
-               <p id="season"></p>
+
+          <body>
+            <p id="date"> </p>
+            <p id="season"></p>
             <script>
               //outputs current date in easy to read format
-              n =  new Date();
+              n = new Date();
               y = n.getFullYear();
               m = n.getMonth() + 1;
               d = n.getDate();
               document.getElementById("date").innerHTML = "Today's Date: " + m + "/" + d + "/" + y;
 
               //auto calculates current fishing season 
-              var today  = new Date(); 
+              var today = new Date();
 
-             /* var spring, summer, fall, winter; 
-              // dates for current astrological seasons 
-              spring = new Date('03/20/18 00:00'); 
-              summer = new Date('06/21/18 00:00'); 
-              fall   = new Date('09/22/18 00:00'); 
-              winter = new Date('12/21/18 00:00'); 
-              */
+              /* var spring, summer, fall, winter; 
+               // dates for current astrological seasons 
+               spring = new Date('03/20/18 00:00'); 
+               summer = new Date('06/21/18 00:00'); 
+               fall   = new Date('09/22/18 00:00'); 
+               winter = new Date('12/21/18 00:00'); 
+               */
 
               // create dates for different seasons 
-              var regular, regional, extended, MPP, WS, bass, freeFish; 
-              
+              var regular, regional, extended, MPP, WS, bass, freeFish;
+
               // define dates for seasons 
-              regular  = {start:new Date ('04/14/18 08:00'), end:new Date ('09/04/18 00:00'), name:"Trout and Salmon - Regular"}
-              regional = {start:new Date ('03/31/18 08:00'), end:new Date ('09/04/18 00:00'), name:"Trout and Salmon - Regional Regular"}
-              extended = {start:new Date ('09/04/18 00:00'), end:new Date ('02/28/19 00:00'), name:"Trout and Salmon - Extended Regular"}
-              MPP      = {start:new Date ('01/01/18'), end:new Date ('12/31/19'), name:"Muskellunge, Pike, Pickerel"}
-              WS       = {start:new Date ('05/05/18'), end:new Date ('03/14/19'), name:"Walleye, Sauger"}
-              bass     = {start:new Date ('01/01/18'), end:new Date ('12/31/19'), name:"Bass - Largemouth, Smallmouth, Spotted"}
-              freeFish = {one:new Date ('05/27/18'), two:new Date ('07/04/18'), name:"Fish-for-Free Days 2018"}
+              regular = { start: new Date('04/14/18 08:00'), end: new Date('09/04/18 00:00'), name: "Trout and Salmon - Regular" }
+              regional = { start: new Date('03/31/18 08:00'), end: new Date('09/04/18 00:00'), name: "Trout and Salmon - Regional Regular" }
+              extended = { start: new Date('09/04/18 00:00'), end: new Date('02/28/19 00:00'), name: "Trout and Salmon - Extended Regular" }
+              MPP = { start: new Date('01/01/18'), end: new Date('12/31/19'), name: "Muskellunge, Pike, Pickerel" }
+              WS = { start: new Date('05/05/18'), end: new Date('03/14/19'), name: "Walleye, Sauger" }
+              bass = { start: new Date('01/01/18'), end: new Date('12/31/19'), name: "Bass - Largemouth, Smallmouth, Spotted" }
+              freeFish = { one: new Date('05/27/18'), two: new Date('07/04/18'), name: "Fish-for-Free Days 2018" }
 
               // calculate current open seasons 
               var fish = {
-                regular : undefined,
-                regional : undefined, 
-                extended : undefined, 
-                MPP : undefined, 
-                WS : undefined, 
-                bass : undefined, 
-                freeFish : undefined
-              }; 
-              
+                regular: undefined,
+                regional: undefined,
+                extended: undefined,
+                MPP: undefined,
+                WS: undefined,
+                bass: undefined,
+                freeFish: undefined
+              };
+
               //regular 
-              if (today < regular.end && today > regular.start){
-                fish.regular = {season: true, name:"Trout and Salmon - Regular; "} 
+              if (today < regular.end && today > regular.start) {
+                fish.regular = { season: true, name: "Trout and Salmon - Regular; " }
               } else {
-                fish.regular = {season :false, name:""}
+                fish.regular = { season: false, name: "" }
               }
 
               // regional 
-              if (today < regional.end && today > regional.start){
-                fish.regional = {season : true, name:"Trout and Salmon - Regional Regular; "}
+              if (today < regional.end && today > regional.start) {
+                fish.regional = { season: true, name: "Trout and Salmon - Regional Regular; " }
               } else {
-                fish.regional = {season : false, name:""}
+                fish.regional = { season: false, name: "" }
               }
 
               // extended  
-              if (today < extended.end && today > extended.start){
-                fish.extended = {season : true, name:"Trout and Salmon - Extended Regular; "}
+              if (today < extended.end && today > extended.start) {
+                fish.extended = { season: true, name: "Trout and Salmon - Extended Regular; " }
               } else {
-                fish.extended = {season : false, name:""}
+                fish.extended = { season: false, name: "" }
               }
 
-               // MPP
-              if (today < MPP.end && today > MPP.start){
-                fish.MPP = {season : true, name:"Muskellunge, Pike, Pickerel; "}
+              // MPP
+              if (today < MPP.end && today > MPP.start) {
+                fish.MPP = { season: true, name: "Muskellunge, Pike, Pickerel; " }
               } else {
-                fish.MPP = {season : false, name:""}
+                fish.MPP = { season: false, name: "" }
               }
 
               // WS
-              if (today < WS.end && today > WS.start){
-                fish.WS = {season : true,  name:"Walleye, Sauger; "}
+              if (today < WS.end && today > WS.start) {
+                fish.WS = { season: true, name: "Walleye, Sauger; " }
               } else {
-                fish.WS = {season : false, name:""}
+                fish.WS = { season: false, name: "" }
               }
 
               //bass 
-              if (today < bass.end && today > bass.start){
-                fish.bass = {season : true, name:"Bass - Largemouth, Smallmouth, Spotted; "}
+              if (today < bass.end && today > bass.start) {
+                fish.bass = { season: true, name: "Bass - Largemouth, Smallmouth, Spotted; " }
               } else {
-                fish.bass = {season : false, name:""}
+                fish.bass = { season: false, name: "" }
               }
 
               // free fishing 
-              if (today == freeFish.one || today == freeFish.two){
-                fish.freeFish = {season : true, name:"Fish-for-Free Days 2018; "}
+              if (today == freeFish.one || today == freeFish.two) {
+                fish.freeFish = { season: true, name: "Fish-for-Free Days 2018; " }
               } else {
-                fish.freeFish = {season : false, name:""}
+                fish.freeFish = { season: false, name: "" }
               }
 
-              document.getElementById("season").innerHTML = "Current Fishing Seasons: " + fish.freeFish.name 
+              document.getElementById("season").innerHTML = "Current Fishing Seasons: " + fish.freeFish.name
                 + fish.regular.name + fish.regional.name + fish.extended.name + fish.MPP.name + fish.WS.name + fish.bass.name; 
             </script>
           </body>
@@ -232,8 +255,17 @@
         }
       }
 
+      function accFunction2(id) {
+        var x = document.getElementById(id);
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else {
+        }
+      }
+
+
       function clickfunction(lat, lon) {
-        
+
         map.setView([lat, lon], 11);
 
       }
@@ -250,7 +282,7 @@
       function leavefunction(lat, lon) {
 
         circle.setLatLng([lat, lon]);
-        circle.setStyle({ color: 'blue' });
+        circle.setStyle({ color: 'red' });
       }
 
     </script>
@@ -271,233 +303,250 @@
       </div>
     </div>
 
-
     <div id="sitecontainer">
-        <div class="w3-content w3-container">
-          <!-- Site listing -->
-          <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%;left:50px">
-            <h3 class="w3-bar-item">Site List</h3>
-           
-            <div>
-              <button onclick="clickfunction(41.84027778,-75.2383333)" onmouseover="hoverfunction(41.84027778,-75.2383333)" onmouseout = "leavefunction(41.84027778,-75.2383333)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
-                style="opacity: 1">Equinunk Creek near Dillontown, PA</button>
-            </div>
-            <div>
-              <button onclick="clickfunction(40.8336726,-77.82750108)" onmouseover="hoverfunction(40.8336726,-77.82750108)" onmouseout = "leavefunction(40.8336726,-77.82750108)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
-                style="opacity: 1">Spring Creek at Houserville, PA</button>
-            </div>
-            <div>
-              <button onclick="clickfunction(40.88978334,-77.794168)" onmouseover="hoverfunction(40.88978334,-77.794168)" onmouseout = "leavefunction(40.88978334,-77.794168)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
-                style="opacity: 1">Spring Creek near Axemann, PA</button>
-            </div>
-            <div>
-              <button onclick="clickfunction(40.9317273,-77.7855575)" onmouseover="hoverfunction(40.9317273,-77.7855575)" onmouseout = "leavefunction(40.9317273,-77.7855575)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
-                style="opacity: 1">Spring Creek at Milesburg, PA</button>
-            </div>
-            <div>
-              <button onclick="clickfunction(40.943116,-77.78639109)" onmouseover="hoverfunction(40.943116,-77.78639109)" onmouseout = "leavefunction(40.943116,-77.78639109)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
-                style="opacity: 1">Bald Eagle Creek bl Spring Creek at Milesburg, PA</button>
-            </div>
-            <div>
-              <button onclick="clickfunction(40.61256655,-78.1405645)" onmouseover="hoverfunction(40.61256655,-78.1405645)" onmouseout = "leavefunction(40.61256655,-78.1405645)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
-                style="opacity: 1">Little Juniata River at Spruce Creek, PA</button>
-            </div>
-            <div>
-              <button onclick="clickfunction(40.65479256,-77.5830499)" onmouseover="hoverfunction(40.65479256,-77.5830499)" onmouseout = "leavefunction(40.65479256,-77.5830499)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
-                style="opacity: 1">Kishacoquillas Creek at Reedsville, PA</button>
-            </div>
-            <div>
-              <button onclick="clickfunction(41.05173127,-77.6044379)" onmouseover="hoverfunction(41.05173127,-77.6044379)" onmouseout = "leavefunction(41.05173127,-77.6044379)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
-                style="opacity: 1">Bald Eagle Creek at Blanchard, PA</button>
-            </div>
-            <div>
-              <button onclick="clickfunction(41.11755906,-78.108896)" onmouseover="hoverfunction(41.11755906,-78.108896)" onmouseout = "leavefunction(41.11755906,-78.108896)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
-                style="opacity: 1">WB Susquehanna River at Karthaus, PA</button>
-            </div>
-            <div>
-              <button onclick="clickfunction(40.93923105,-79.00836738)" onmouseover="hoverfunction(40.93923105,-79.00836738)" onmouseout = "leavefunction(40.93923105,-79.00836738)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
-                style="opacity: 1">Mahoning Creek at Punxsutawney, PA</button>
-            </div>
-  
+      <div class="w3-content w3-container">
+        <!-- Site listing -->
+        <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%;left:50px">
+          <h3 class="w3-bar-item">Site List</h3>
+
+          <div>
+            <button onclick="clickfunction(41.84027778,-75.2383333)" onmouseover="hoverfunction(41.84027778,-75.2383333)"
+              onmouseout="leavefunction(41.84027778,-75.2383333)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
+              style="opacity: 1">Equinunk Creek near Dillontown, PA</button>
           </div>
-  
+          <div>
+            <button onclick="clickfunction(40.8336726,-77.82750108)" onmouseover="hoverfunction(40.8336726,-77.82750108)"
+              onmouseout="leavefunction(40.8336726,-77.82750108)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
+              style="opacity: 1">Spring Creek at Houserville, PA</button>
+          </div>
+          <div>
+            <button onclick="clickfunction(40.88978334,-77.794168)" onmouseover="hoverfunction(40.88978334,-77.794168)"
+              onmouseout="leavefunction(40.88978334,-77.794168)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
+              style="opacity: 1">Spring Creek near Axemann, PA</button>
+          </div>
+          <div>
+            <button onclick="clickfunction(40.9317273,-77.7855575)" onmouseover="hoverfunction(40.9317273,-77.7855575)"
+              onmouseout="leavefunction(40.9317273,-77.7855575)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
+              style="opacity: 1">Spring Creek at Milesburg, PA</button>
+          </div>
+          <div>
+            <button onclick="clickfunction(40.943116,-77.78639109)" onmouseover="hoverfunction(40.943116,-77.78639109)"
+              onmouseout="leavefunction(40.943116,-77.78639109)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
+              style="opacity: 1">Bald Eagle Creek bl Spring Creek at Milesburg, PA</button>
+          </div>
+          <div>
+            <button onclick="clickfunction(40.61256655,-78.1405645)" onmouseover="hoverfunction(40.61256655,-78.1405645)"
+              onmouseout="leavefunction(40.61256655,-78.1405645)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
+              style="opacity: 1">Little Juniata River at Spruce Creek, PA</button>
+          </div>
+          <div>
+            <button onclick="clickfunction(40.65479256,-77.5830499)" onmouseover="hoverfunction(40.65479256,-77.5830499)"
+              onmouseout="leavefunction(40.65479256,-77.5830499)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
+              style="opacity: 1">Kishacoquillas Creek at Reedsville, PA</button>
+          </div>
+          <div>
+            <button onclick="clickfunction(41.05173127,-77.6044379)" onmouseover="hoverfunction(41.05173127,-77.6044379)"
+              onmouseout="leavefunction(41.05173127,-77.6044379)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
+              style="opacity: 1">Bald Eagle Creek at Blanchard, PA</button>
+          </div>
+          <div>
+            <button onclick="clickfunction(41.11755906,-78.108896)" onmouseover="hoverfunction(41.11755906,-78.108896)"
+              onmouseout="leavefunction(41.11755906,-78.108896)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
+              style="opacity: 1">WB Susquehanna River at Karthaus, PA</button>
+          </div>
+          <div>
+            <button onclick="clickfunction(40.93923105,-79.00836738)" onmouseover="hoverfunction(40.93923105,-79.00836738)"
+              onmouseout="leavefunction(40.93923105,-79.00836738)" class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink"
+              style="opacity: 1">Mahoning Creek at Punxsutawney, PA</button>
+          </div>
+
+
+
+
+
+
         </div>
+
       </div>
-  
-  <script>
-
-    // "use strict"
-    //data is stored in a variable called stream 
-    //functions 
-    // basemap
-    function w3_open() {
-      document.getElementById("left").style.display = "block";
-    }
-    function w3_close() {
-      document.getElementById("left").style.display = "none";
-    }
-
-    var long = -77.859909, lat = 40.798214; // long lat of state college 
-    var map = L.map('map').setView([lat, long], 11);
-    var mapbox = L.tileLayer('https://api.mapbox.com/styles/v1/maycroft/cjnkc5wltdyqw2snablx3hng3/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWF5Y3JvZnQiLCJhIjoiY2l5MXluMW1nMDAwYjJ2cGc0MnlpaDd5cCJ9.4-kIMv1yknNvjhZGQtjnmA', {
-      maxZoom: 18,
-      attribution: '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'
-    });
-    mapbox.addTo(map);
-
-//plots every point
-    //accesses the different site locations 
-    var sites = stream.value.timeSeries;//gets to the different sites 
-    var i = 0;
-    for (i = 0; i < sites.length; i++) {
-      var x = String(i) // because they use numbers as strings for the different sites 
-      var site = sites[i].sourceInfo.geoLocation.geogLocation //access the lat and long for each 
-      var circle = L.circleMarker([site.latitude, site.longitude], {
-        radius: 10,
-        color: 'blue',
-        radius: 5,
-        fillColor: 'blue'
-      }).addTo(map)
+    </div>
 
 
+    <script>
 
-            
-// create photo variable for each of the sites. When photo is clicked in popup, new window opens with enlarged image. 
-// this could have been better with a switch function, but it works with an if/else statements too. - BW
-// would have liked to make this automated (since each URL is the same except the site number) but could not find out how to make a JS variable read in internal HTML. - BW 
-    var photo; 
-          if (sites[i].sourceInfo.siteCode["0"].value == '01427195'){
-            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01427500&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01427500&parm_cd=00060&period=7" width="300px"/> </a>'
-          }  else if (sites[i].sourceInfo.siteCode["0"].value == '01546500'){
-            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01546500&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01546500&parm_cd=00060&period=7" width="300px"/> </a>'
-          } else if (sites[i].sourceInfo.siteCode["0"].value == '01546400'){
-            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01546400&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01546400&parm_cd=00060&period=7" width="300px"/> </a>'
-          } else if (sites[i].sourceInfo.siteCode["0"].value == '01547100'){
-            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547100&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547100&parm_cd=00060&period=7" width="300px"/> </a>'
-          } else if (sites[i].sourceInfo.siteCode["0"].value == '01547200'){
-            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547200&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547200&parm_cd=00060&period=7" width="300px"/> </a>'
-          } else if (sites[i].sourceInfo.siteCode["0"].value == '01558000'){
-            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01558000&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01558000&parm_cd=00060&period=7" width="300px"/> </a>'
-          } else if (sites[i].sourceInfo.siteCode["0"].value == '01565000'){
-            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01565000&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01565000&parm_cd=00060&period=7" width="300px"/> </a>'
-          } else if (sites[i].sourceInfo.siteCode["0"].value == '01547500'){
-            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547500&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547500&parm_cd=00060&period=7" width="300px"/> </a>'
-          } else if (sites[i].sourceInfo.siteCode["0"].value == '01542500'){
-            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01542500&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01542500&parm_cd=00060&period=7" width="300px"/> </a>'
-          } else if (sites[i].sourceInfo.siteCode["0"].value == '03034000'){
-            photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=03034000&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=03034000&parm_cd=00060&period=7" width="300px"/> </a>'
-          } else {
-            photo = "No photo available"
-          } 
-
-            //create variable of popup values  
-     var valPop = ("<dt><b>" + sites[i].sourceInfo.siteName + "</b></dt>" +
-                    photo +
-                    "<dt><b>Current Stream Flow: </b>" + sites[i].values["0"].value["0"].value +" ft^3/s" + "</dt>" +
-                    "<dt><b>Water Temperature:  </b>" + sites[i].sourceInfo.siteProperty["3"].value + " &#176F" + "</dt>" +
-                    "<dt><b>Air Temperature:  </b>" +  sites[i].sourceInfo.siteProperty["4"].value + " &#176F" + "</dt>" +
-                    "<dt><b>Polluted:  </b>" + sites[i].sourceInfo.siteProperty["6"].value + "</dt>" ) +
-                    "<dt><b>Site Code: </b>" + sites[i].sourceInfo.siteCode["0"].value + "</dt>";
-          
-          circle.bindPopup(valPop)
-                          
- }; // end of loop 
-
-
-
-
-// create json of data for filtering
-    var json = {
-      "type": "FeatureCollection",
-      "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-      "features": [
-        { "type": "Feature", "properties": { "value": sites["0"].values["0"].value["0"].value, "name": sites["0"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
-        { "type": "Feature", "properties": { "value": sites["1"].values["0"].value["0"].value, "name": sites["1"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
-        { "type": "Feature", "properties": { "value": sites["2"].values["0"].value["0"].value, "name": sites["2"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
-        { "type": "Feature", "properties": { "value": sites["3"].values["0"].value["0"].value, "name": sites["3"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
-        { "type": "Feature", "properties": { "value": sites["4"].values["0"].value["0"].value, "name": sites["4"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
-        { "type": "Feature", "properties": { "value": sites["5"].values["0"].value["0"].value, "name": sites["5"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
-        { "type": "Feature", "properties": { "value": sites["6"].values["0"].value["0"].value, "name": sites["6"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
-        { "type": "Feature", "properties": { "value": sites["7"].values["0"].value["0"].value, "name": sites["7"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
-        { "type": "Feature", "properties": { "value": sites["8"].values["0"].value["0"].value, "name": sites["8"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } },
-        { "type": "Feature", "properties": { "value": sites["9"].values["0"].value["0"].value, "name": sites["9"].sourceInfo.siteName }, "geometry": { "type": "Point", "coordinates": [site.longitude, site.latitude] } }
-      ]
-    };
-
-    // create layer group of geoJSON (not added to map)
-    var layer_group = L.geoJSON(json, {
-      onEachFeature: function (feature, layer) {
+      // "use strict"
+      //data is stored in a variable called stream 
+      //functions 
+      // basemap
+      function w3_open() {
+        document.getElementById("left").style.display = "block";
       }
-    });
-
-    // create visual components of filter (???)
-    var margin = { top: 10, right: 10, bottom: 10, left: 10 },
-      width = 620 - margin.left - margin.right,
-      height = 100 - margin.top - margin.bottom;
-
-    var y = d3.scaleLinear()
-      .domain([0, 10])
-      .rangeRound([0, width]);
-
-    var svg = d3.select("#overlay").append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    svg.append("g")
-      .attr("class", "axis axis--grid")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(y)
-        .ticks(10)
-        .tickSize(-height)
-        .tickFormat(function () { return null; }));
-
-    svg.append("g")
-      .attr("class", "axis axis--x")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(y)
-        .ticks(10)
-        .tickPadding(0))
-      .attr("text-anchor", null)
-      .selectAll("text")
-      .attr("x", -20)
-      .attr("y", -20);
-
-    svg.append("g")
-      .attr("class", "brush")
-      .call(d3.brushX()
-        .extent([[0, 0], [width, height]])
-        .on("end", brushended));
-
-
-// create function for brushing (???)
-    function brushended() {
-      if (!d3.event.sourceEvent) return; // Only transition after input.
-      if (!d3.event.selection) return; // Ignore empty selections.
-      var d0 = d3.event.selection.map(y.invert),
-        d1 = d0.map(Math.round);
-
-      // If empty when rounded, use floor & ceil instead.
-      if (d1[0] >= d1[1]) {
-        d1[0] = Math.floor(d0[0]);
-        d1[1] = d1[0] + 1;
+      function w3_close() {
+        document.getElementById("left").style.display = "none";
       }
 
-      d3.select(this).transition().call(d3.event.target.move, d1.map(y));
-
-      layer_group.eachLayer(function (layer) {
-        map.removeLayer(layer);
-        if (layer.feature.properties.value > d1[0] && layer.feature.properties.value <= d1[1]) {
-          map.addLayer(layer);
-        }
+      var long = -77.859909, lat = 40.798214; // long lat of state college 
+      var map = L.map('map').setView([lat, long], 11);
+      var mapbox = L.tileLayer('https://api.mapbox.com/styles/v1/maycroft/cjnkc5wltdyqw2snablx3hng3/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWF5Y3JvZnQiLCJhIjoiY2l5MXluMW1nMDAwYjJ2cGc0MnlpaDd5cCJ9.4-kIMv1yknNvjhZGQtjnmA', {
+        maxZoom: 18,
+        attribution: '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'
       });
-    }
-    
+      mapbox.addTo(map);
 
-    
+      //plots every point
+      //accesses the different site locations 
+      var sites = stream.value.timeSeries;//gets to the different sites 
+      var i = 0;
+      for (i = 0; i < sites.length; i++) {
+        var x = String(i) // because they use numbers as strings for the different sites 
+        var site = sites[i].sourceInfo.geoLocation.geogLocation //access the lat and long for each 
 
-  </script>
+
+        //Add popup
+        // add image url variable (dependent on site location)
+        //var imageUrl = ("https://static.pexels.com/photos/189349/pexels-photo-189349.jpeg");
+
+        var photo;
+        if (sites[i].sourceInfo.siteCode["0"].value == '01427195') {
+          photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01427500&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01427500&parm_cd=00060&period=7" width="300px"/> </a>'
+        } else if (sites[i].sourceInfo.siteCode["0"].value == '01546500') {
+          photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01546500&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01546500&parm_cd=00060&period=7" width="300px"/> </a>'
+        } else if (sites[i].sourceInfo.siteCode["0"].value == '01546400') {
+          photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01546400&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01546400&parm_cd=00060&period=7" width="300px"/> </a>'
+        } else if (sites[i].sourceInfo.siteCode["0"].value == '01547100') {
+          photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547100&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547100&parm_cd=00060&period=7" width="300px"/> </a>'
+        } else if (sites[i].sourceInfo.siteCode["0"].value == '01547200') {
+          photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547200&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547200&parm_cd=00060&period=7" width="300px"/> </a>'
+        } else if (sites[i].sourceInfo.siteCode["0"].value == '01558000') {
+          photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01558000&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01558000&parm_cd=00060&period=7" width="300px"/> </a>'
+        } else if (sites[i].sourceInfo.siteCode["0"].value == '01565000') {
+          photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01565000&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01565000&parm_cd=00060&period=7" width="300px"/> </a>'
+        } else if (sites[i].sourceInfo.siteCode["0"].value == '01547500') {
+          photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547500&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547500&parm_cd=00060&period=7" width="300px"/> </a>'
+        } else if (sites[i].sourceInfo.siteCode["0"].value == '01542500') {
+          photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01542500&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01542500&parm_cd=00060&period=7" width="300px"/> </a>'
+        } else if (sites[i].sourceInfo.siteCode["0"].value == '03034000') {
+          photo = '<a href="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=03034000&parm_cd=00060&period=7" target="_blank"> <img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=03034000&parm_cd=00060&period=7" width="300px"/> </a>'
+        } else {
+          photo = "No photo available"
+        }
+
+        //create variable of popup values  
+        var valPop = ("<dt><b>" + sites[i].sourceInfo.siteName + "</b></dt>" +
+          photo +
+          "<dt><b>Current Stream Flow: </b>" + sites[i].values["0"].value["0"].value + " ft^3/s" + "</dt>" +
+          "<dt><b>Water Temperature:  </b>" + sites[i].sourceInfo.siteProperty["3"].value + " &#176F" + "</dt>" +
+          "<dt><b>Air Temperature:  </b>" + sites[i].sourceInfo.siteProperty["4"].value + " &#176F" + "</dt>" +
+          "<dt><b>Polluted:  </b>" + sites[i].sourceInfo.siteProperty["6"].value + "</dt>") +
+          "<dt><b>Site Code: </b>" + sites[i].sourceInfo.siteCode["0"].value + "</dt>";
+      }; // end of loop 
+
+
+
+      var json1 = {
+        "type": "FeatureCollection",
+        "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+        "features": [
+          { "type": "Feature", "properties": { "value": sites["0"].values["0"].value["0"].value, "name": sites["0"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["0"].sourceInfo.geoLocation.geogLocation.longitude, sites["0"].sourceInfo.geoLocation.geogLocation.latitude] } },
+          { "type": "Feature", "properties": { "value": sites["1"].values["0"].value["0"].value, "name": sites["1"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["1"].sourceInfo.geoLocation.geogLocation.longitude, sites["1"].sourceInfo.geoLocation.geogLocation.latitude] } },
+          { "type": "Feature", "properties": { "value": sites["2"].values["0"].value["0"].value, "name": sites["2"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["2"].sourceInfo.geoLocation.geogLocation.longitude, sites["2"].sourceInfo.geoLocation.geogLocation.latitude] } },
+          { "type": "Feature", "properties": { "value": sites["3"].values["0"].value["0"].value, "name": sites["3"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["3"].sourceInfo.geoLocation.geogLocation.longitude, sites["3"].sourceInfo.geoLocation.geogLocation.latitude] } },
+          { "type": "Feature", "properties": { "value": sites["4"].values["0"].value["0"].value, "name": sites["4"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["4"].sourceInfo.geoLocation.geogLocation.longitude, sites["4"].sourceInfo.geoLocation.geogLocation.latitude] } },
+          { "type": "Feature", "properties": { "value": sites["5"].values["0"].value["0"].value, "name": sites["5"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["5"].sourceInfo.geoLocation.geogLocation.longitude, sites["5"].sourceInfo.geoLocation.geogLocation.latitude] } },
+          { "type": "Feature", "properties": { "value": sites["6"].values["0"].value["0"].value, "name": sites["6"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["6"].sourceInfo.geoLocation.geogLocation.longitude, sites["6"].sourceInfo.geoLocation.geogLocation.latitude] } },
+          { "type": "Feature", "properties": { "value": sites["7"].values["0"].value["0"].value, "name": sites["7"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["7"].sourceInfo.geoLocation.geogLocation.longitude, sites["7"].sourceInfo.geoLocation.geogLocation.latitude] } },
+          { "type": "Feature", "properties": { "value": sites["8"].values["0"].value["0"].value, "name": sites["8"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["8"].sourceInfo.geoLocation.geogLocation.longitude, sites["8"].sourceInfo.geoLocation.geogLocation.latitude] } },
+          { "type": "Feature", "properties": { "value": sites["9"].values["0"].value["0"].value, "name": sites["9"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["9"].sourceInfo.geoLocation.geogLocation.longitude, sites["9"].sourceInfo.geoLocation.geogLocation.latitude] } }
+        ]
+      };
+
+      function whenClicked(e) {
+        accFunction2("Acco1");
+        accFunction2("Acco2");
+        accFunction2("Acco3");
+
+      }
+
+
+      var layer_group = L.geoJSON(json1, {
+        onEachFeature: function (feature, layer) {
+          layer.bindPopup(valPop);
+          layer.on({
+            click: whenClicked
+          });
+          // accFunction('Acco3');
+
+        }
+      }).addTo(map);
+
+
+      var margin = { top: 10, right: 10, bottom: 10, left: 10 },
+        width = 600 - margin.left - margin.right,
+        height = 70 - margin.top - margin.bottom;
+
+      // This y varibale part is heart to your brushing functionality. Works with brushended() function and layer_group.eachLayer(function (layer), among others.     
+      var y = d3.scaleLinear()
+        .domain([0, 600])
+        .rangeRound([0, 500]);
+
+      var svg = d3.select("#overlay").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      svg.append("g")
+        .attr("class", "axis axis--grid")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(y)
+          .ticks(5)
+          .tickSize(-height)
+          .tickFormat(function () { return null; }));
+
+      svg.append("g")
+        .attr("class", "axis axis--x")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(y)
+          .ticks(5)
+          .tickPadding(0))
+        .attr("text-anchor", null)
+        .selectAll("text")
+        .attr("x", -20)
+        .attr("y", -20);
+
+      svg.append("g")
+        .attr("class", "brush")
+        .call(d3.brushX()
+          .extent([[0, 0], [width, height]])
+          .on("end", brushended));
+
+      // to understand what's happening below, see: https://github.com/d3/d3-scale#continuous_domain. Its about D3 scaling, which is related to 'selection by brushing' and corresponding output on the map window. Try to understand DOMAIN and RANGE and INVERT!  
+      function brushended() {
+        if (!d3.event.sourceEvent) return; // Only transition after input.
+        if (!d3.event.selection) return; // Ignore empty selections.
+        var d0 = d3.event.selection.map(y.invert),
+          d1 = d0.map(Math.round);
+
+        // If empty when rounded, use floor & ceil instead.
+        if (d1[0] >= d1[1]) {
+          d1[0] = Math.floor(d0[0]);
+          d1[1] = d1[0] + 1;
+        }
+
+        d3.select(this).transition().call(d3.event.target.move, d1.map(y));
+
+        layer_group.eachLayer(function (layer) {
+          map.removeLayer(layer);
+          // if the "range" of values selected by your brushing stroke include data value(s) [i.e. values from the domain] corresponding to json1 layer value, then add them to the map 
+          if (layer.feature.properties.value > d1[0] && layer.feature.properties.value <= d1[1]) {
+            map.addLayer(layer);
+          }
+        });
+      }
+
+
+
+
+    </script>
 
 </body>
 
