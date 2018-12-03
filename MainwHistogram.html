@@ -84,7 +84,104 @@
           style="opacity: 1">Fishing Season</button>
         <div id="Acco3" class="w3-container w3-hide">
           <!-- Fishing Season Filter here -->
-          <h4>Fishing Season Filter</h4>
+                   <body>
+               <p id="date"> </p>
+               <p id="season"></p>
+            <script>
+              //outputs current date in easy to read format
+              n =  new Date();
+              y = n.getFullYear();
+              m = n.getMonth() + 1;
+              d = n.getDate();
+              document.getElementById("date").innerHTML = "Today's Date: " + m + "/" + d + "/" + y;
+
+              //auto calculates current fishing season 
+              var today  = new Date(); 
+
+             /* var spring, summer, fall, winter; 
+              // dates for current astrological seasons 
+              spring = new Date('03/20/18 00:00'); 
+              summer = new Date('06/21/18 00:00'); 
+              fall   = new Date('09/22/18 00:00'); 
+              winter = new Date('12/21/18 00:00'); 
+              */
+
+              // create dates for different seasons 
+              var regular, regional, extended, MPP, WS, bass, freeFish; 
+              
+              // define dates for seasons 
+              regular  = {start:new Date ('04/14/18 08:00'), end:new Date ('09/04/18 00:00'), name:"Trout and Salmon - Regular"}
+              regional = {start:new Date ('03/31/18 08:00'), end:new Date ('09/04/18 00:00'), name:"Trout and Salmon - Regional Regular"}
+              extended = {start:new Date ('09/04/18 00:00'), end:new Date ('02/28/19 00:00'), name:"Trout and Salmon - Extended Regular"}
+              MPP      = {start:new Date ('01/01/18'), end:new Date ('12/31/19'), name:"Muskellunge, Pike, Pickerel"}
+              WS       = {start:new Date ('05/05/18'), end:new Date ('03/14/19'), name:"Walleye, Sauger"}
+              bass     = {start:new Date ('01/01/18'), end:new Date ('12/31/19'), name:"Bass - Largemouth, Smallmouth, Spotted"}
+              freeFish = {one:new Date ('05/27/18'), two:new Date ('07/04/18'), name:"Fish-for-Free Days 2018"}
+
+              // calculate current open seasons 
+              var fish = {
+                regular : undefined,
+                regional : undefined, 
+                extended : undefined, 
+                MPP : undefined, 
+                WS : undefined, 
+                bass : undefined, 
+                freeFish : undefined
+              }; 
+              
+              //regular 
+              if (today < regular.end && today > regular.start){
+                fish.regular = {season: true, name:"Trout and Salmon - Regular; "} 
+              } else {
+                fish.regular = {season :false, name:""}
+              }
+
+              // regional 
+              if (today < regional.end && today > regional.start){
+                fish.regional = {season : true, name:"Trout and Salmon - Regional Regular; "}
+              } else {
+                fish.regional = {season : false, name:""}
+              }
+
+              // extended  
+              if (today < extended.end && today > extended.start){
+                fish.extended = {season : true, name:"Trout and Salmon - Extended Regular; "}
+              } else {
+                fish.extended = {season : false, name:""}
+              }
+
+               // MPP
+              if (today < MPP.end && today > MPP.start){
+                fish.MPP = {season : true, name:"Muskellunge, Pike, Pickerel; "}
+              } else {
+                fish.MPP = {season : false, name:""}
+              }
+
+              // WS
+              if (today < WS.end && today > WS.start){
+                fish.WS = {season : true,  name:"Walleye, Sauger; "}
+              } else {
+                fish.WS = {season : false, name:""}
+              }
+
+              //bass 
+              if (today < bass.end && today > bass.start){
+                fish.bass = {season : true, name:"Bass - Largemouth, Smallmouth, Spotted; "}
+              } else {
+                fish.bass = {season : false, name:""}
+              }
+
+              // free fishing 
+              if (today == freeFish.one || today == freeFish.two){
+                fish.freeFish = {season : true, name:"Fish-for-Free Days 2018; "}
+              } else {
+                fish.freeFish = {season : false, name:""}
+              }
+
+              document.getElementById("season").innerHTML = "Current Fishing Seasons: " + fish.freeFish.name 
+                + fish.regular.name + fish.regional.name + fish.extended.name + fish.MPP.name + fish.WS.name + fish.bass.name; 
+            </script>
+          </body>
         </div>
       </div>
     </div>
@@ -259,16 +356,36 @@
         // add image url variable (dependent on site location)
         //var imageUrl = ("https://static.pexels.com/photos/189349/pexels-photo-189349.jpeg");
         
-        var photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547200&parm_cd=00060&period=7" width="300px"/>';
-
-        
+var photo; 
+       if (sites[i].sourceInfo.siteCode["0"].value == '01427195'){
+        photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01427500&parm_cd=00060&period=7" width="300px"/>';
+       }  else if (sites[i].sourceInfo.siteCode["0"].value == '01546500'){
+        photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01546500&parm_cd=00060&period=7" width="300px"/>';
+       } else if (sites[i].sourceInfo.siteCode["0"].value == '01546400'){
+        photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01546400&parm_cd=00060&period=7" width="300px"/>';
+       } else if (sites[i].sourceInfo.siteCode["0"].value == '01547100'){
+        photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547100&parm_cd=00060&period=7" width="300px"/>';
+       } else if (sites[i].sourceInfo.siteCode["0"].value == '01547200'){
+        photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547200&parm_cd=00060&period=7" width="300px"/>';
+       } else if (sites[i].sourceInfo.siteCode["0"].value == '01558000'){
+        photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01558000&parm_cd=00060&period=7" width="300px"/>';
+       } else if (sites[i].sourceInfo.siteCode["0"].value == '01565000'){
+        photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01565000&parm_cd=00060&period=7" width="300px"/>';
+       } else if (sites[i].sourceInfo.siteCode["0"].value == '01547500'){
+        photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01547500&parm_cd=00060&period=7" width="300px"/>';
+       } else if (sites[i].sourceInfo.siteCode["0"].value == '01542500'){
+        photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=01542500&parm_cd=00060&period=7" width="300px"/>';
+       } else if (sites[i].sourceInfo.siteCode["0"].value == '03034000'){
+        photo = '<img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=03034000&parm_cd=00060&period=7" width="300px"/>';
+       } else {
+         photo = "No photo available"
+       } 
         //create variable of popup values  
         var valPop = ("<dt><b>" + sites[i].sourceInfo.siteName + "</b></dt>" +
                     photo +
                     "<dt><b>Current Stream Flow: </b>" + sites[i].values["0"].value["0"].value +" ft^3/s" + "</dt>" +
                     "<dt><b>Water Temperature:  </b>" + sites[i].sourceInfo.siteProperty["3"].value + " &#176F" + "</dt>" +
                     "<dt><b>Air Temperature:  </b>" +  sites[i].sourceInfo.siteProperty["4"].value + " &#176F" + "</dt>" +
-                    "<dt><b>Fishing Season:  </b>" + sites[i].sourceInfo.siteProperty["5"].value + "</dt>" +
                     "<dt><b>Polluted:  </b>" + sites[i].sourceInfo.siteProperty["6"].value + "</dt>" ) +
                     "<dt><b>Site Code: </b>" + sites[i].sourceInfo.siteCode["0"].value + "</dt>";
       
