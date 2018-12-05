@@ -74,7 +74,7 @@
         <div id="Acco2" class="w3-container w3-hide">
           <!-- Flow Rate filter here -->
           <div class="w3-row-padding" style="width:90%;height: 23%;opacity: 0.9;">
-            <div id="overlay">Brush based on flow rate value <button onclick="location.reload(); ">Reset View</button>
+            <div id="overlay">Brush based on most recent stream discharge (ft^3/s). <br><button onclick="location.reload(); ">Reset View</button>
             </div>
 
           </div>
@@ -205,9 +205,11 @@
       }
 
 
-      function clickfunction(lat, lon) {
+      function clickfunction(lat, lon, x) {
 
         map.setView([lat, lon], 11);
+        whenClicked();
+        layer_group._layers[x].openPopup();
 
       }
 
@@ -216,14 +218,12 @@
 
         circle.setLatLng([lat, lon]);
         circle.setStyle({ color: 'green' });
-
-
       }
 
       function leavefunction(lat, lon) {
 
         circle.setLatLng([lat, lon]);
-        circle.setStyle({ color: 'red' });
+        circle.setStyle({ color: '#00000000' });
       }
 
     </script>
@@ -252,52 +252,52 @@
           <input class="w3-input w3-border w3-padding" type="text" placeholder="Search for station.." id="myInput" onkeyup="myFunction()">
           <ul class="w3-ul w3-margin-top" id="myUL">
             <li>
-              <button onclick="clickfunction(41.84027778,-75.2383333)" onmouseover="hoverfunction(41.84027778,-75.2383333)" onmouseout="leavefunction(41.84027778,-75.2383333)"
+              <button onclick="clickfunction(41.84027778,-75.2383333, 96)" onmouseover="hoverfunction(41.84027778,-75.2383333)" onmouseout="leavefunction(41.84027778,-75.2383333)"
                 class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1;margin-bottom: -10px">Equinunk
                 Creek near Dillontown, PA</button>
             </li>
             <li>
-              <button onclick="clickfunction(40.8336726,-77.82750108)" onmouseover="hoverfunction(40.8336726,-77.82750108)" onmouseout="leavefunction(40.8336726,-77.82750108)"
+              <button onclick="clickfunction(40.8336726,-77.82750108, 98)" onmouseover="hoverfunction(40.8336726,-77.82750108)" onmouseout="leavefunction(40.8336726,-77.82750108)"
                 class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1;margin-bottom: -10px">Spring
                 Creek at Houserville, PA</button>
             </li>
             <li>
-              <button onclick="clickfunction(40.88978334,-77.794168)" onmouseover="hoverfunction(40.88978334,-77.794168)" onmouseout="leavefunction(40.88978334,-77.794168)"
+              <button onclick="clickfunction(40.88978334,-77.794168, 99)" onmouseover="hoverfunction(40.88978334,-77.794168)" onmouseout="leavefunction(40.88978334,-77.794168)"
                 class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1;margin-bottom: -10px">Spring
                 Creek near Axemann, PA</button>
             </li>
             <li>
-              <button onclick="clickfunction(40.9317273,-77.7855575)" onmouseover="hoverfunction(40.9317273,-77.7855575)" onmouseout="leavefunction(40.9317273,-77.7855575)"
+              <button onclick="clickfunction(40.9317273,-77.7855575, 100)" onmouseover="hoverfunction(40.9317273,-77.7855575)" onmouseout="leavefunction(40.9317273,-77.7855575)"
                 class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1;margin-bottom: -10px">Spring
                 Creek at Milesburg, PA</button>
             </li>
             <li>
-              <button onclick="clickfunction(40.943116,-77.78639109)" onmouseover="hoverfunction(40.943116,-77.78639109)" onmouseout="leavefunction(40.943116,-77.78639109)"
+              <button onclick="clickfunction(40.943116,-77.78639109, 101)" onmouseover="hoverfunction(40.943116,-77.78639109)" onmouseout="leavefunction(40.943116,-77.78639109)"
                 class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1;margin-bottom: -10px">Bald
                 Eagle Creek bl Spring Creek at Milesburg, PA</button>
             </li>
             <li>
-              <button onclick="clickfunction(40.61256655,-78.1405645)" onmouseover="hoverfunction(40.61256655,-78.1405645)" onmouseout="leavefunction(40.61256655,-78.1405645)"
+              <button onclick="clickfunction(40.61256655,-78.1405645, 102)" onmouseover="hoverfunction(40.61256655,-78.1405645)" onmouseout="leavefunction(40.61256655,-78.1405645)"
                 class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1;margin-bottom: -10px">Little
                 Juniata River at Spruce Creek, PA</button>
             </li>
             <li>
-              <button onclick="clickfunction(40.65479256,-77.5830499)" onmouseover="hoverfunction(40.65479256,-77.5830499)" onmouseout="leavefunction(40.65479256,-77.5830499)"
+              <button onclick="clickfunction(40.65479256,-77.5830499, 103)" onmouseover="hoverfunction(40.65479256,-77.5830499)" onmouseout="leavefunction(40.65479256,-77.5830499)"
                 class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1;margin-bottom: -10px">Kishacoquillas
                 Creek at Reedsville, PA</button>
             </li>
             <li>
-              <button onclick="clickfunction(41.05173127,-77.6044379)" onmouseover="hoverfunction(41.05173127,-77.6044379)" onmouseout="leavefunction(41.05173127,-77.6044379)"
+              <button onclick="clickfunction(41.05173127,-77.6044379, 104)" onmouseover="hoverfunction(41.05173127,-77.6044379)" onmouseout="leavefunction(41.05173127,-77.6044379)"
                 class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1;margin-bottom: -10px">Bald
                 Eagle Creek at Blanchard, PA</button>
             </li>
             <li>
-              <button onclick="clickfunction(41.11755906,-78.108896)" onmouseover="hoverfunction(41.11755906,-78.108896)" onmouseout="leavefunction(41.11755906,-78.108896)"
+              <button onclick="clickfunction(41.11755906,-78.108896, 105)" onmouseover="hoverfunction(41.11755906,-78.108896)" onmouseout="leavefunction(41.11755906,-78.108896)"
                 class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1;margin-bottom: -10px">WB Susquehanna
                 River at Karthaus, PA</button>
             </li>
             <li>
-              <button onclick="clickfunction(40.93923105,-79.00836738)" onmouseover="hoverfunction(40.93923105,-79.00836738)" onmouseout="leavefunction(40.93923105,-79.00836738)"
+              <button onclick="clickfunction(40.93923105,-79.00836738, 106)" onmouseover="hoverfunction(40.93923105,-79.00836738)" onmouseout="leavefunction(40.93923105,-79.00836738)"
                 class="w3-bar-item w3-btn w3-card w3-button w3-indigo w3-hover-pink" style="opacity: 1;margin-bottom: -10px">Mahoning
                 Creek at Punxsutawney, PA</button>
             </li>
@@ -326,7 +326,7 @@
 
     <script>
 
-      // "use strict"
+     //"use strict"
       //data is stored in a variable called stream 
       //functions 
       // basemap
@@ -347,16 +347,17 @@
 
       //plots every point
       //accesses the different site locations 
+      var array = [];  
       var sites = stream.value.timeSeries;//gets to the different sites 
       var i = 0;
       for (i = 0; i < sites.length; i++) {
         var x = String(i) // because they use numbers as strings for the different sites 
         var site = sites[i].sourceInfo.geoLocation.geogLocation //access the lat and long for each 
-        var circle = L.circle([site.latitude, site.longitude], {
+        var circle = L.circleMarker([site.latitude, site.longitude], {
         radius: 10,
-        color: 'red',
-        radius: 500,
-        fillColor: '#f03'
+        color: '#00000000',
+        radius: 10,
+        fillColor: '#00000000'
       }).addTo(map)
 
         //Add popup
@@ -388,7 +389,8 @@
           photo = "No photo available"
         }
 
-        //create variable of popup values  
+        //create variable of popup values
+
         var valPop = ("<dt><b>" + sites[i].sourceInfo.siteName + "</b></dt>" +
           photo +
           "<dt><b>Current Stream Flow: </b>" + sites[i].values["0"].value["0"].value + " ft^3/s" + "</dt>" +
@@ -396,6 +398,8 @@
           "<dt><b>Air Temperature:  </b>" + sites[i].sourceInfo.siteProperty["4"].value + " &#176F" + "</dt>" +
           "<dt><b>Polluted:  </b>" + sites[i].sourceInfo.siteProperty["6"].value + "</dt>") +
           "<dt><b>Site Code: </b>" + sites[i].sourceInfo.siteCode["0"].value + "</dt>";
+     array.push(valPop)
+     
       }; // end of loop 
 
 
@@ -404,30 +408,29 @@
         "type": "FeatureCollection",
         "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
         "features": [
-          { "type": "Feature", "properties": { "value": sites["0"].values["0"].value["0"].value, "name": sites["0"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["0"].sourceInfo.geoLocation.geogLocation.longitude, sites["0"].sourceInfo.geoLocation.geogLocation.latitude] } },
-          { "type": "Feature", "properties": { "value": sites["1"].values["0"].value["0"].value, "name": sites["1"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["1"].sourceInfo.geoLocation.geogLocation.longitude, sites["1"].sourceInfo.geoLocation.geogLocation.latitude] } },
-          { "type": "Feature", "properties": { "value": sites["2"].values["0"].value["0"].value, "name": sites["2"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["2"].sourceInfo.geoLocation.geogLocation.longitude, sites["2"].sourceInfo.geoLocation.geogLocation.latitude] } },
-          { "type": "Feature", "properties": { "value": sites["3"].values["0"].value["0"].value, "name": sites["3"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["3"].sourceInfo.geoLocation.geogLocation.longitude, sites["3"].sourceInfo.geoLocation.geogLocation.latitude] } },
-          { "type": "Feature", "properties": { "value": sites["4"].values["0"].value["0"].value, "name": sites["4"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["4"].sourceInfo.geoLocation.geogLocation.longitude, sites["4"].sourceInfo.geoLocation.geogLocation.latitude] } },
-          { "type": "Feature", "properties": { "value": sites["5"].values["0"].value["0"].value, "name": sites["5"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["5"].sourceInfo.geoLocation.geogLocation.longitude, sites["5"].sourceInfo.geoLocation.geogLocation.latitude] } },
-          { "type": "Feature", "properties": { "value": sites["6"].values["0"].value["0"].value, "name": sites["6"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["6"].sourceInfo.geoLocation.geogLocation.longitude, sites["6"].sourceInfo.geoLocation.geogLocation.latitude] } },
-          { "type": "Feature", "properties": { "value": sites["7"].values["0"].value["0"].value, "name": sites["7"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["7"].sourceInfo.geoLocation.geogLocation.longitude, sites["7"].sourceInfo.geoLocation.geogLocation.latitude] } },
-          { "type": "Feature", "properties": { "value": sites["8"].values["0"].value["0"].value, "name": sites["8"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["8"].sourceInfo.geoLocation.geogLocation.longitude, sites["8"].sourceInfo.geoLocation.geogLocation.latitude] } },
-          { "type": "Feature", "properties": { "value": sites["9"].values["0"].value["0"].value, "name": sites["9"].sourceInfo.siteCode["0"].value }, "geometry": { "type": "Point", "coordinates": [sites["9"].sourceInfo.geoLocation.geogLocation.longitude, sites["9"].sourceInfo.geoLocation.geogLocation.latitude] } }
+          { "type": "Feature", "properties": { "value": sites["0"].values["0"].value["0"].value, "name": sites["0"].sourceInfo.siteCode["0"].value, pop : array[0] }, "geometry": { "type": "Point", "coordinates": [sites["0"].sourceInfo.geoLocation.geogLocation.longitude, sites["0"].sourceInfo.geoLocation.geogLocation.latitude] } },
+          { "type": "Feature", "properties": { "value": sites["1"].values["0"].value["0"].value, "name": sites["1"].sourceInfo.siteCode["0"].value, pop : array[1] }, "geometry": { "type": "Point", "coordinates": [sites["1"].sourceInfo.geoLocation.geogLocation.longitude, sites["1"].sourceInfo.geoLocation.geogLocation.latitude] } },
+          { "type": "Feature", "properties": { "value": sites["2"].values["0"].value["0"].value, "name": sites["2"].sourceInfo.siteCode["0"].value, pop : array[2] }, "geometry": { "type": "Point", "coordinates": [sites["2"].sourceInfo.geoLocation.geogLocation.longitude, sites["2"].sourceInfo.geoLocation.geogLocation.latitude] } },
+          { "type": "Feature", "properties": { "value": sites["3"].values["0"].value["0"].value, "name": sites["3"].sourceInfo.siteCode["0"].value, pop : array[3] }, "geometry": { "type": "Point", "coordinates": [sites["3"].sourceInfo.geoLocation.geogLocation.longitude, sites["3"].sourceInfo.geoLocation.geogLocation.latitude] } },
+          { "type": "Feature", "properties": { "value": sites["4"].values["0"].value["0"].value, "name": sites["4"].sourceInfo.siteCode["0"].value, pop : array[4] }, "geometry": { "type": "Point", "coordinates": [sites["4"].sourceInfo.geoLocation.geogLocation.longitude, sites["4"].sourceInfo.geoLocation.geogLocation.latitude] } },
+          { "type": "Feature", "properties": { "value": sites["5"].values["0"].value["0"].value, "name": sites["5"].sourceInfo.siteCode["0"].value, pop : array[5] }, "geometry": { "type": "Point", "coordinates": [sites["5"].sourceInfo.geoLocation.geogLocation.longitude, sites["5"].sourceInfo.geoLocation.geogLocation.latitude] } },
+          { "type": "Feature", "properties": { "value": sites["6"].values["0"].value["0"].value, "name": sites["6"].sourceInfo.siteCode["0"].value, pop : array[6] }, "geometry": { "type": "Point", "coordinates": [sites["6"].sourceInfo.geoLocation.geogLocation.longitude, sites["6"].sourceInfo.geoLocation.geogLocation.latitude] } },
+          { "type": "Feature", "properties": { "value": sites["7"].values["0"].value["0"].value, "name": sites["7"].sourceInfo.siteCode["0"].value, pop : array[7] }, "geometry": { "type": "Point", "coordinates": [sites["7"].sourceInfo.geoLocation.geogLocation.longitude, sites["7"].sourceInfo.geoLocation.geogLocation.latitude] } },
+          { "type": "Feature", "properties": { "value": sites["8"].values["0"].value["0"].value, "name": sites["8"].sourceInfo.siteCode["0"].value, pop : array[8] }, "geometry": { "type": "Point", "coordinates": [sites["8"].sourceInfo.geoLocation.geogLocation.longitude, sites["8"].sourceInfo.geoLocation.geogLocation.latitude] } },
+          { "type": "Feature", "properties": { "value": sites["9"].values["0"].value["0"].value, "name": sites["9"].sourceInfo.siteCode["0"].value, pop : array[9] }, "geometry": { "type": "Point", "coordinates": [sites["9"].sourceInfo.geoLocation.geogLocation.longitude, sites["9"].sourceInfo.geoLocation.geogLocation.latitude] } }
         ]
       };
 
       function whenClicked(e) {
-        accFunction2("Acco1");
         accFunction2("Acco2");
         accFunction2("Acco3");
-
       }
 
 
-      var layer_group = L.geoJSON(json1, {
+      var layer_group = L.geoJSON(json1, { 
         onEachFeature: function (feature, layer) {
-          layer.bindPopup(valPop);
+          'use strict';
+          layer.bindPopup(feature.properties.pop);
           layer.on({
             click: whenClicked
           });
