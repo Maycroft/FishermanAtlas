@@ -47,7 +47,7 @@ html, body, .wrap, #map {
 
 #overlay { 
   position: relative; 
-  top:70px;
+  top:25px;
   left:40px;
   z-index: 2; 
   background-color: white; 
