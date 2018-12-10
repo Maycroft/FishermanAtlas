@@ -447,7 +447,7 @@
       // This y varibale part is heart to your brushing functionality. Works with brushended() function and layer_group.eachLayer(function (layer), among others.     
       var y = d3.scaleLinear()
         .domain([0, 600])
-        .rangeRound([0, 500]);
+        .rangeRound([0, 400]);
 
       var svg = d3.select("#overlay").append("svg")
         .attr("width", width + margin.left + margin.right)
